@@ -18,7 +18,7 @@ server.views({
 server.route({
     method: 'GET',
     path: '/',
-    handler: function (request, reply) {
+    handler(request, reply) {
         reply.view('home/index',{title:"Don't worry be Hapi!!!"});
     }
 });
@@ -26,7 +26,7 @@ server.route({
 server.route({
     method: 'GET',
     path: '/contact',
-    handler: function (request, reply) {
+    handler(request, reply) {
         reply.view('contact/contact',{title:"Contact Page"});
     }
 });
@@ -42,12 +42,12 @@ server.register({
             }
         }]
     }
-}, function (err) {
+}, (err) => {
     if (err) {
         throw err; // something bad happened loading the plugin
     }
 
-    server.start(function () {
-        server.log('info', 'Server running at: ' + server.info.uri);
+    server.start(() => {
+        server.log('info', `Server running at: ${server.info.uri}`);
     });
 });
