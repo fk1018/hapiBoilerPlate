@@ -1,9 +1,10 @@
+'use strict';
 const   HAPI        = require('hapi'),
         GOOD        = require('good'),
         HBS         = require('handlebars'),
         PATH        = require('path');
 
-var server = new HAPI.Server();
+let server = new HAPI.Server();
 server.connection({ port: 3000 });
 server.views({
     engines: {
