@@ -1,18 +1,18 @@
-const   hapi        = require('hapi'),
-        good        = require('good'),
-        hbs         = require('handlebars'),
-        path        = require('path');
+const   HAPI        = require('hapi'),
+        GOOD        = require('good'),
+        HBS         = require('handlebars'),
+        PATH        = require('path');
 
-var server = new hapi.Server();
+var server = new HAPI.Server();
 server.connection({ port: 3000 });
 server.views({
     engines: {
-        html: hbs
+        html: HBS
     },
     relativeTo: __dirname,
     path: './public/views',
     layout: true,
-    layoutPath: path.join(__dirname,'./public/views/layout'),
+    layoutPath: PATH.join(__dirname,'./public/views/layout'),
 });
 
 server.route({
@@ -32,7 +32,7 @@ server.route({
 });
 
 server.register({
-    register: good,
+    register: GOOD,
     options: {
         reporters: [{
             reporter: require('good-console'),
